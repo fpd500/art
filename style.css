@@ -1,0 +1,15 @@
+body
+{
+	padding: 0;
+	margin: 0;
+}
+
+.boid{
+  width: 20px;
+  height: 20px;
+  backgroundcolor: green;
+  position:absolute;
+  overflow:hidden; /*maybe change to visible for off screen*/
+}
+
+
