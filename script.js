@@ -4,6 +4,7 @@ var x = 90;
 var y = 34;
 var speed = 2;
 
+var pixelSize = 2;
 
 const placeCharacter = () => {
    
@@ -27,7 +28,7 @@ const placeCharacter = () => {
    if (y > bottomLimit) { y = bottomLimit; }
    
    boid.style.transform = `translate3d( ${x*pixelSize}px, ${y*pixelSize}px, 0 )`;  
-}
+};
 
 
 //Set up the game loop
@@ -35,8 +36,8 @@ const step = () => {
    placeCharacter();
    window.requestAnimationFrame(() => {
       step();
-   })
-}
+   });
+};
 step(); //kick off the first step!
 
 
@@ -47,25 +48,24 @@ const directions = {
    down: "down",
    left: "left",
    right: "right",
-}
+};
 const keys = {
    38: directions.up,
    37: directions.left,
    39: directions.right,
    40: directions.down,
-}
+};
 document.addEventListener("keydown", (e) => {
    var dir = keys[e.which];
    if (dir && held_directions.indexOf(dir) === -1) {
-      held_directions.unshift(dir)
+      held_directions.unshift(dir);
    }
-})
+});
 
 document.addEventListener("keyup", (e) => {
    var dir = keys[e.which];
    var index = held_directions.indexOf(dir);
    if (index > -1) {
-      held_directions.splice(index, 1)
+      held_directions.splice(index, 1);
    }
 });
-
